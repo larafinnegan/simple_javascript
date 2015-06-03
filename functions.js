@@ -68,7 +68,7 @@ function largestOfFour(arr) {
   final = [];
   
   for (var i in arr) {
-    var max = 0;
+    var max = null;
     for (var j in arr[i]) {
       if (arr[i][j] > max) {
         max = arr[i][j];
