@@ -6,27 +6,24 @@ function reverseString(str) {
 
 // factorialize a number
 function factorialize(num) {
-  var fact = 1;
+  var result = 1;
   for (; num > 1; num--) {
-    fact *= num;
+    result *= num;
   }
-  return fact;
+  return result;
 }
 
 // check for palindromes
 function palindrome(str) {
   str = str.toLowerCase().split("");
 
-  update = [];
-
-  for (var i in str) {
-     if (str[i].match(/[a-z]/)) update.push(str[i]);
+  var i = str.length - 1;
+  while (i >= 0) {
+     if (!str[i].match(/[a-z]/)) str.splice(i, 1);
+     i--;
   }
 
-  reversed = update.reverse().join("");
-  update = update.reverse().join("");
-
-  return update === reversed;
+  return str.join("") === str.reverse().join("");
 }
 
 // longest word in string
@@ -35,9 +32,7 @@ function findLongestWord(str) {
   max = 0;
   
   for (var i in a) {
-    if (a[i].length > max) {
-      max = a[i].length;
-    }
+    if (a[i].length > max) max = a[i].length;
   }
   
   return max;
@@ -45,29 +40,25 @@ function findLongestWord(str) {
 
 // title case a sentence
 function titleCase(str) {
-  var a = str.toLowerCase().split(" ");
-  updated = [];
+  str = str.toLowerCase().split(" ");
   
-  for (var i in a) {
-    updated.push(a[i][0].toUpperCase() + a[i].substring(1, a[i].length));
+  for (var i in str) {
+    str[i] = str[i][0].toUpperCase() + str[i].substring(1, str[i].length);
   }
   
-  return updated.join(" ");
+  return str.join(" ");
 }
 
 // return largest number in arrays
 function largestOfFour(arr) {
-  final = [];
+  result = [];
   
   for (var i in arr) {
     var max = null;
     for (var j in arr[i]) {
-      if (arr[i][j] > max) {
-        max = arr[i][j];
-      }
+      if (arr[i][j] > max) max = arr[i][j];
     }
-    final.push(max);
+    result.push(max);
   }
-  // You can do this!
-  return final;
+  return result;
 }
