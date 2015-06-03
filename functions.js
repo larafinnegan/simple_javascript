@@ -15,26 +15,18 @@ function factorialize(num) {
 
 // check for palindromes
 function palindrome(str) {
-  str = str.toLowerCase();
-  
-  str = str.split("");
+  str = str.toLowerCase().split("");
+
   update = [];
 
   for (var i in str) {
-     if (str[i].match(/[a-z]/)) {
-        update.push(str[i]);
-      }
+     if (str[i].match(/[a-z]/)) update.push(str[i]);
   }
 
   reversed = update.reverse().join("");
   update = update.reverse().join("");
 
-  if (update === reversed) {
-      return true;
-    }
-    else {
-      return false;
-  }
+  return update === reversed;
 }
 
 // longest word in string
