@@ -28,11 +28,11 @@ function palindrome(str) {
 
 // longest word in string
 function findLongestWord(str) {
-  a = str.split(" ");
+  str = str.split(" ");
   max = 0;
   
   for (var i in a) {
-    if (a[i].length > max) max = a[i].length;
+    if (str[i].length > max) max = str[i].length;
   }
   
   return max;
@@ -61,4 +61,72 @@ function largestOfFour(arr) {
     result.push(max);
   }
   return result;
+}
+
+// match end of string
+function end(str, target) {
+  return str.substring(str.length - target.length, str.length) === target;
+}
+
+// repeat a string
+function repeat(str, num) {
+    orig = str;
+  if (num <= 0) return "";
+  for (var i = 1; i < num; i++) {
+    str += orig;
+}
+  return str;
+}
+
+// truncate string
+function truncate(str, num) {
+    return str.length <= num ? str : str.substring(0, num - 3) + "...";
+}
+
+// chunk arrays
+function chunk(arr, size) {
+  new_arr = [];
+  
+  for (i = 0; i <= arr.length - size; i += size) {
+      new_arr.push(arr.slice(i, size + i));
+  }
+  
+  if (arr.length % size) {
+	new_arr.push(arr.slice(arr.length - (arr.length % size), arr.length));
+	}
+    return new_arr;
+}
+
+// slice arrays
+function slasher(arr, howMany) {
+    return howMany >= arr.length ? [] : arr.slice(howMany, arr.length);
+}
+
+// array comparison
+function mutation(arr) {
+    input1 = arr[0].toLowerCase().split("");
+    input2 = arr[1].toLowerCase().split("");
+
+    
+    for (var i in input2) {
+        var idx = input1.indexOf(input2[i]);
+        if (idx === (-1) || input1 === []) {
+            return false;
+        }
+        else {
+            input1.splice(idx, 1);
+        }
+    }
+    return true;
+}
+
+// remove false elements from array
+function bouncer(arr) {
+  var i = arr.length;
+  
+  while (i >= 0) {
+      if (!arr[i]) arr.splice(i, 1);
+      i--;
+  }
+  return arr;
 }
